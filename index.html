@@ -6,230 +6,380 @@
     <title>Charlene B. Boholst | IT Portfolio</title>
     <style>
         :root {
-            --primary: #1e293b;
-            --accent: #2563eb;
-            --text: #334155;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
+            --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            --header-bg: #0f172a; /* Deep elegant dark slate */
+            --accent-gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            --creative-pink: #ec4899; /* Canva-style vibrant touch */
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-bottom: 5rem;
         }
 
+        /* Hero / Header Section */
         header {
-            background-color: var(--primary);
+            background: var(--header-bg);
             color: white;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         header h1 {
-            font-size: 2.5rem;
-            letter-spacing: 1px;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
             margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 40%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        header p {
-            font-size: 1.2rem;
+        header .subtitle {
+            font-size: 1.25rem;
             color: #94a3b8;
-            margin-bottom: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .contact-info {
+        .contact-pills {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1rem;
             flex-wrap: wrap;
-            font-size: 0.9rem;
         }
 
-        .contact-info a {
+        .pill {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
             color: #cbd5e1;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .pill a {
+            color: white;
             text-decoration: none;
         }
 
+        .pill:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
         .container {
-            max-width: 1000px;
-            margin: 3rem auto;
+            max-width: 1100px;
+            margin: 4rem auto 0 auto;
             padding: 0 1.5rem;
         }
 
         section {
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
-        h2 {
-            color: var(--primary);
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.75rem;
+        /* Section Headings (Canva Style) */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            position: relative;
+            margin-bottom: 2rem;
+            display: inline-block;
         }
 
-        .grid {
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 40px;
+            height: 5px;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+        }
+
+        /* Grid Framework */
+        .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; }
+            header h1 { font-size: 2.2rem; }
         }
 
+        /* Modern Visual Cards */
         .card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .card h3 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
         }
 
-        .subtitle {
-            font-style: italic;
-            color: #64748b;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        ul li {
-            margin-bottom: 0.5rem;
+        /* Summary Card Specifics */
+        .summary-text {
+            font-size: 1.1rem;
+            color: var(--text-main);
             position: relative;
-            padding-left: 1.25rem;
+            padding-left: 1.5rem;
+            border-left: 4px solid #3b82f6;
         }
 
-        ul li::before {
-            content: "•";
-            color: var(--accent);
-            font-weight: bold;
+        /* Canva-like Skill Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: #eff6ff;
+            color: #1d4ed8;
+            padding: 0.6rem 1.2rem;
+            border-radius: 14px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid #dbeafe;
+        }
+
+        .tag.creative {
+            background: #fdf2f8;
+            color: #be185d;
+            border: 1px solid #fce7f3;
+        }
+
+        .tag.strength {
+            background: #f8fafc;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Featured Project (Big Banner Style) */
+        .project-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .project-badge {
+            background: var(--accent-gradient);
+            color: white;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .project-body {
+            padding: 2.5rem;
+        }
+
+        .project-body h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .project-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .project-list li::before {
+            content: "→";
+            color: #2563eb;
             position: absolute;
             left: 0;
+            font-weight: bold;
         }
 
-        .skills-tag {
-            display: inline-block;
-            background: #e2e8f0;
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            margin: 0.25rem;
+        /* Experience Timeline Card */
+        .timeline-item h3 {
+            font-size: 1.3rem;
+            color: var(--header-bg);
+        }
+
+        .company-meta {
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Education Layout */
+        .edu-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .year-badge {
+            align-self: flex-start;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.2rem 0.8rem;
+            border-radius: 8px;
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            background: var(--primary);
-            color: #94a3b8;
+            margin-top: 5rem;
+            color: var(--text-muted);
             font-size: 0.9rem;
-            margin-top: 4rem;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <h1>CHARLENE B. BOHOLST</h1>
-        <p>IT Professional | Systems & Operations Specialist</p>
-        <div class="contact-info">
-            <span>📍 Calamba City, Laguna, Philippines</span>
-            <span>📞 0991-553-7078</span>
-            <span>✉️ <a href="mailto:cbboholst8699@gmail.com">cbboholst8699@gmail.com</a></span>
+        <div class="header-content">
+            <h1>Charlene B. Boholst</h1>
+            <p class="subtitle">IT Professional & Operations Specialist</p>
+            <div class="contact-pills">
+                <div class="pill">📍 Calamba City, Laguna, Philippines</div>
+                <div class="pill">📞 0991-553-7078</div>
+                <div class="pill">✉️ <a href="mailto:cbboholst8699@gmail.com">cbboholst8699@gmail.com</a></div>
+            </div>
         </div>
     </header>
 
     <div class="container">
         
         <section>
-            <h2>Professional Summary</h2>
-            <p>Information Technology graduate with strong problem-solving skills and hands-on experience in system development and administrative support. Proven ability to manage data, support office operations, and contribute to technical projects. Fast learner with a commitment to delivering efficient and reliable solutions.</p>
+            <h2 class="section-title">Professional Profile</h2>
+            <div class="card">
+                <p class="summary-text">
+                    Information Technology graduate equipped with strong problem-solving capabilities and hands-on exposure to system optimization and organizational support. Proven aptitude for precise data governance, modernizing office workflows, and aligning creative media assets with technical objectives. 
+                </p>
+            </div>
         </section>
 
         <section>
-            <h2>Core Skills</h2>
-            <div class="grid">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="grid-2">
                 <div class="card">
-                    <h3>Technical Expertise</h3>
-                    <div style="margin-top: 1rem;">
-                        <span class="skills-tag">Microsoft Office Suite</span>
-                        <span class="skills-tag">Google Workspace</span>
-                        <span class="skills-tag">Centralized Data Management</span>
-                        <span class="skills-tag">Canva (Graphic Design)</span>
-                        <span class="skills-tag">CapCut (Video Editing)</span>
+                    <h3 style="margin-bottom: 1rem; font-size: 1.2rem;">Technical Toolkit</h3>
+                    <div class="skills-container">
+                        <span class="tag">System Development</span>
+                        <span class="tag">Data Management</span>
+                        <span class="tag">MS Office Suite</span>
+                        <span class="tag">Google Workspace</span>
+                    </div>
+                    <h3 style="margin: 1.5rem 0 1rem 0; font-size: 1.2rem;">Creative Media</h3>
+                    <div class="skills-container">
+                        <span class="tag creative">Canva (Graphic Design)</span>
+                        <span class="tag creative">CapCut (Video Production)</span>
                     </div>
                 </div>
                 <div class="card">
-                    <h3>Professional Strengths</h3>
-                    <div style="margin-top: 1rem;">
-                        <span class="skills-tag">Detail-Oriented</span>
-                        <span class="skills-tag">Problem-Solving</span>
-                        <span class="skills-tag">Workflow Efficiency</span>
-                        <span class="skills-tag">Team Collaboration</span>
-                        <span class="skills-tag">Adaptability</span>
-                        <span class="skills-tag">Multi-Tasking</span>
+                    <h3 style="margin-bottom: 1rem; font-size: 1.2rem;">Professional Traits</h3>
+                    <div class="skills-container">
+                        <span class="tag strength">Detail-Oriented</span>
+                        <span class="tag strength">Analytical Problem-Solving</span>
+                        <span class="tag strength">Workflow Efficiency</span>
+                        <span class="tag strength">Cross-Functional Collaboration</span>
+                        <span class="tag strength">Agile Adaptability</span>
+                        <span class="tag strength">Multi-Tasking Execution</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <section>
-            <h2>Featured Project</h2>
-            <div class="card">
-                <h3>Web-Based Supply Chain Management System</h3>
-                <p class="subtitle">System Development / Capstone Project (2024)</p>
-                <ul>
-                    <li>Designed and developed a system to optimize order fulfillment, inventory, and logistics.</li>
-                    <li>Implemented real-time inventory tracking to improve operational efficiency.</li>
-                    <li>Enhanced supplier coordination through centralized data management.</li>
-                    <li>Contributed to reducing operational delays and improving data accuracy.</li>
+            <h2 class="section-title">Featured Development</h2>
+            <div class="project-card">
+                <div class="project-body">
+                    <span class="project-badge">Capstone Project</span>
+                    <h3>Web-Based Supply Chain Management System</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; font-style: italic;">Full System Architecture & Deployment (2024)</p>
+                    
+                    <ul class="project-list">
+                        <li>Engineered a centralized web application to seamlessly unify order fulfillment, logistical routes, and inventory tracking.</li>
+                        <li>Configured real-time system monitoring logic to prevent stock bottlenecks and increase operational visibility.</li>
+                        <li>Reduced processing friction and delays by establishing automated data consistency checks across supplier interfaces.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Hands-on Experience</h2>
+            <div class="card timeline-item">
+                <h3>Information Technology Intern</h3>
+                <p class="company-meta">City Hall of Calamba, Laguna — Jan 2024 - May 2024</p>
+                <ul class="project-list">
+                    <li>Supervised high-volume departmental data management, ensuring meticulous precision across operational and attendance logs.</li>
+                    <li>Designed and optimized digital file management storage systems, shrinking information retrieval timelines.</li>
+                    <li>Drafted and processed official administrative correspondence while collaborating directly with leadership on day-to-day workplace productivity.</li>
                 </ul>
             </div>
         </section>
 
         <section>
-            <h2>Professional Experience</h2>
-            <div class="card">
-                <h3>Information Technology Intern (Office Assistant)</h3>
-                <p class="subtitle">City Hall of Calamba, Laguna | January 2024 - May 2024</p>
-                <ul>
-                    <li>Performed accurate data entry and maintained departmental records and attendance logs.</li>
-                    <li>Assisted in preparing and managing office correspondence.</li>
-                    <li>Supported daily administrative operations to ensure workflow efficiency.</li>
-                    <li>Maintained organized documentation and filing systems.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Education</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>City College of Calamba</h3>
-                    <p class="subtitle">A.Y. 2018 - 2024</p>
-                    <p>Bachelor of Science in Information Technology</p>
+            <h2 class="section-title">Education</h2>
+            <div class="grid-2">
+                <div class="card edu-card">
+                    <div>
+                        <span class="year-badge">2018 - 2024</span>
+                        <h3 style="font-size: 1.15rem;">City College of Calamba</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-top: 1rem;">Bachelor of Science in Information Technology</p>
                 </div>
-                <div class="card">
-                    <h3>Calamba Institute</h3>
-                    <p class="subtitle">A.Y. 2012 - 2018</p>
-                    <p>STEM Strand (Senior High School)</p>
+                <div class="card edu-card">
+                    <div>
+                        <span class="year-badge">2012 - 2018</span>
+                        <h3 style="font-size: 1.15rem;">Calamba Institute</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-top: 1rem;">STEM Strand (Senior High School Graphics & Analytics focus)</p>
                 </div>
             </div>
         </section>
@@ -237,7 +387,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Charlene B. Boholst. Portfolio built for career applications.</p>
+        <p>© 2026 Charlene B. Boholst • Handcrafted Portfolio</p>
     </footer>
 
 </body>
